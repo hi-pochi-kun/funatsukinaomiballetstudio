@@ -1,0 +1,38 @@
+---
+layout: base.njk
+title: お月謝
+permalink: /fee.html
+---
+<div class="page-header">
+  <span class="kicker">FEE</span>
+  <h1>お月謝</h1>
+</div>
+<section>
+  <div class="section-inner">
+    <div class="schedule-grid-wrap">
+      <table class="fee-table">
+        <thead>
+          <tr>
+            {% for col in fees.columns %}<th>{{ col }}</th>{% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in fees.rows %}
+          <tr>
+            <th class="fee-name">{{ row.name }}</th>
+            <td class="fee-target">{{ row.target }}</td>
+            {% if row.flatFee %}
+            <td colspan="3">{{ row.flatFee }}</td>
+            {% else %}
+            <td>{{ row.week1 }}</td>
+            <td>{{ row.week2 }}</td>
+            <td>{{ row.week3 }}</td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--ink-soft); font-size:0.85rem; margin-top:20px;">※価格はすべて税込・月額です。</p>
+  </div>
+</section>

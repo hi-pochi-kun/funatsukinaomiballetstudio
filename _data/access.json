@@ -1,0 +1,23 @@
+[
+  {
+    "studio": "都島スタジオ",
+    "postal": "",
+    "address": "大阪市都島区善源治町1丁目1番1号",
+    "stationInfo": "地下鉄谷町線「都島」駅下車 徒歩5分<br>JR環状線「桜ノ宮」駅下車 徒歩10分",
+    "mapUrl": "https://maps.app.goo.gl/zGg1RgksqZAMdqfM7"
+  },
+  {
+    "studio": "岡本スタジオ",
+    "postal": "",
+    "address": "神戸市東灘区田中町2丁目13-12 井口薬局2階 スタジオyou",
+    "stationInfo": "JR神戸線「摂津本山」駅下車 徒歩5分<br>阪急神戸線「岡本」駅下車 徒歩10分",
+    "mapUrl": "https://maps.app.goo.gl/5dAhxDCmbNcNchCD9z"
+  },
+  {
+    "studio": "桂川スタジオ",
+    "postal": "601-8212",
+    "address": "京都市南区久世上久世町30-1(くぜにしこども園)",
+    "stationInfo": "JR京都線「桂川」駅より徒歩10分",
+    "mapUrl": "https://maps.app.goo.gl/jqj4hF2xQ1W9Dhsa6"
+  }
+]

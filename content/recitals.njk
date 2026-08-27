@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: 発表会写真
+permalink: /recitals.html
+---
+<div class="page-header">
+  <span class="kicker">RECITAL</span>
+  <h1>発表会写真</h1>
+</div>
+<section>
+  <div class="section-inner">
+    <div class="photo-grid">
+      {% for photo in recitalPhotos %}
+      <div style="background-image:url('/{{ photo }}'); background-size:cover; background-position:center;"></div>
+      {% else %}
+      <div>写真未登録</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

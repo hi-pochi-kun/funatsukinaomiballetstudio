@@ -1,0 +1,109 @@
+---
+layout: base.njk
+---
+<section class="hero">
+  <div class="hero-image-wrap">
+    <img src="/images/hero/topimage.png" alt="船附菜穂美バレエスタジオ" class="hero-image">
+  </div>
+  <div class="hero-text">
+    <img src="/images/sozai/welcome.png" alt="WELCOME" class="eyebrow-image">
+    <div class="lead">{{ content | safe }}</div>
+  </div>
+</section>
+
+<section id="teacher">
+  <div class="section-inner">
+    <span class="kicker">TEACHER</span>
+    <h2 class="section-title">講師紹介</h2>
+    <div class="teacher-grid">
+      <div class="teacher-photo"><img src="/images/senseipicture/senseipicture.png" alt="{{ teacher.name }}"></div>
+      <div class="teacher-bio">
+        <div class="teacher-name">{{ teacher.name }}</div>
+        <div class="teacher-role">{{ teacher.role }}</div>
+        <ul class="strength-list">
+          {% for s in teacher.strengths %}<li>{{ s }}</li>{% endfor %}
+        </ul>
+        {% for p in teacher.bio %}<p>{{ p }}</p>{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="classes" class="section-alt">
+  <div class="section-inner">
+    <span class="kicker">CLASSES</span>
+    <h2 class="section-title">クラス紹介</h2>
+    <div class="class-grid">
+      {% for c in allClasses %}
+      <div class="class-card">
+        <h3>{{ c }}</h3>
+        <p>{{ classDescriptions[c] }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="section-inner">
+    <span class="kicker">SCHEDULE</span>
+    <h2 class="section-title">スケジュール</h2>
+    {% for s in scheduleGrid %}
+    <h3 class="serif" style="font-size:1.1rem; margin:{% if loop.first %}0{% else %}48px{% endif %} 0 16px;">{{ s.name }}</h3>
+    <div class="schedule-grid-wrap">
+      <table class="schedule-grid">
+        <thead>
+          <tr>
+            <th></th>
+            {% for d in s.days %}<th>{{ d | replace("曜日", "") }}</th>{% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in s.times %}
+          <tr>
+            <th class="time">{{ t }}</th>
+            {% for d in s.days %}
+            <td>{{ s.grid[t][d] }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="access" class="section-alt">
+  <div class="section-inner">
+    <span class="kicker">ACCESS</span>
+    <h2 class="section-title">アクセス</h2>
+    {% for a in access %}
+    <div class="access-card">
+      <h3 class="serif access-studio-name">{{ a.studio }}</h3>
+      <div class="access-grid">
+        <iframe class="access-map-embed" src="https://www.google.com/maps?q={{ a.address | urlencode }}&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="{{ a.studio }}の地図"></iframe>
+        <dl class="access-info">
+          <dt>住所</dt><dd>{% if a.postal %}{{ a.postal }}<br>{% endif %}{{ a.address }}</dd>
+          <dt>最寄駅</dt><dd>{{ a.stationInfo | safe }}</dd>
+        </dl>
+        <a class="btn btn-outline access-map-link" href="{{ a.mapUrl }}" target="_blank" rel="noopener">Googleマップで開く ↗</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner" style="display:flex; justify-content:center;">
+    <div class="contact-box">
+      <span class="kicker">CONTACT</span>
+      <h2 class="section-title" style="margin:0 auto 20px;">お問い合わせ</h2>
+      <p>体験レッスン・ご質問はGoogleフォーム、またはお電話にてお気軽にご連絡ください。</p>
+      <div class="cta-row" style="margin-bottom:0;">
+        <a class="btn btn-primary" href="{{ contact.formUrl }}" target="_blank" rel="noopener">Googleフォームへ進む</a>
+        <a class="btn btn-outline" href="tel:{{ contact.tel }}">{{ contact.tel }}</a>
+      </div>
+    </div>
+  </div>
+</section>

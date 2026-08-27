@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: 衣装レンタル
+permalink: /costume.html
+---
+<div class="page-header">
+  <span class="kicker">COSTUME RENTAL</span>
+  <h1>衣装レンタル</h1>
+</div>
+<section>
+  <div class="section-inner">
+    <p style="color:var(--ink-soft); max-width:640px; margin:0 auto 24px; text-align:center;">
+      発表会やコンクールで使用する衣装を、レンタルしております。<br>
+      詳しい情報が必要な方は、以下のお問い合わせフォームよりもしくはお電話までご連絡ください。
+    </p>
+    <div class="cta-row" style="justify-content:center; margin-bottom:36px;">
+      <a class="btn btn-primary" href="{{ contact.formUrl }}" target="_blank" rel="noopener">Googleフォームへ進む</a>
+      <a class="btn btn-outline" href="tel:{{ contact.tel }}">{{ contact.tel }}</a>
+    </div>
+    <div class="photo-grid">
+      {% for photo in costumePhotos %}
+      <div style="background-image:url('/{{ photo }}'); background-size:cover; background-position:center;"></div>
+      {% else %}
+      <div>写真</div><div>写真</div><div>写真</div><div>写真</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

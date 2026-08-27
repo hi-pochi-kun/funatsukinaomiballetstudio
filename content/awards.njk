@@ -1,0 +1,23 @@
+---
+layout: base.njk
+title: 受賞実績
+permalink: /awards.html
+---
+<div class="page-header">
+  <span class="kicker">AWARDS</span>
+  <h1>受賞実績</h1>
+</div>
+<section>
+  <div class="section-inner">
+    <div class="awards-list">
+      {% for group in awards %}
+      <div class="award-row">
+        <div class="year">{{ group.year }}</div>
+        <div>
+          {% for t in group.titles %}<div class="title">{{ t }}</div>{% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
