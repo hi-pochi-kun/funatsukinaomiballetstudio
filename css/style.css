@@ -17,6 +17,7 @@ body{
   background:var(--white);
   line-height:1.9;
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 h1,h2,h3,.serif{font-family:'Shippori Mincho', serif;}
 a{color:inherit;text-decoration:none;}
@@ -32,6 +33,10 @@ header{
   background:rgba(255,255,255,0.94);
   backdrop-filter:blur(6px);
   border-bottom:1px solid var(--blush-deep);
+}
+.header-banner{
+  width:100%; max-height:130px; object-fit:cover;
+  display:block; margin:0; padding:0;
 }
 .nav-wrap{
   max-width:1680px; margin:0 auto;
@@ -131,16 +136,28 @@ body.nav-open{ overflow:hidden; }
 /* ---------- Hero ---------- */
 .hero{
   position:relative;
+  margin:0;
 }
 .hero-image-wrap{
-  width:100%; height:min(70vh, 640px); min-height:360px;
+  width:100%; height:40vh; max-height:400px;
   overflow:hidden;
+  margin:0; padding:0;
+  display:flex; justify-content:center; align-items:center;
+  background:var(--white);
 }
 .hero-image{
-  width:100%; height:100%; object-fit:cover; display:block;
+  height:100%; width:100%;
+  object-fit:cover; display:block;
+}
+@media (max-width:600px){
+  .hero-image-wrap{
+    height:32vh; max-height:280px;
+    padding:0;
+  }
+  .hero-image{ border-radius:0; }
 }
 .hero-text{
-  text-align:center; padding:40px 24px 48px;
+  text-align:center; padding:20px 24px 48px;
   background:var(--blush);
 }
 .eyebrow{
@@ -151,8 +168,8 @@ body.nav-open{ overflow:hidden; }
   margin-bottom:22px;
 }
 .eyebrow-image{
-  display:block; margin:0 auto 22px;
-  max-height:64px; width:auto;
+  display:block; margin:0 auto 11px;
+  max-height:128px; width:auto;
 }
 .hero h1{
   font-size:clamp(2.1rem, 5vw, 3.4rem);
@@ -161,12 +178,17 @@ body.nav-open{ overflow:hidden; }
 }
 .hero-text .lead{
   max-width:900px; margin:0 auto; padding-top:8px;
-  color:var(--ink-soft); font-size:1.02rem;
+  color:var(--ink-soft); font-size:1rem;
 }
+.lead-indent{ padding-top:32px; }
 .hero-text .lead p{ margin-bottom:14px; white-space:nowrap; }
 .hero-text .lead p:last-child{ margin-bottom:0; }
 @media (max-width:940px){
   .hero-text .lead p{ white-space:normal; }
+}
+@media (max-width:600px){
+  .eyebrow-image{ width:70%; max-height:none; height:auto; margin:0 auto 16px; }
+  .hero-text .lead{ font-size:0.85rem; }
 }
 .cta-row{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
 .btn{
@@ -270,6 +292,14 @@ table.schedule-grid td{ color:var(--ink); font-weight:500; }
 table.schedule-grid td:empty::before{ content:"–"; color:var(--blush-deep); font-weight:400; }
 table.schedule-grid tbody tr:last-child th, table.schedule-grid tbody tr:last-child td{ border-bottom:none; }
 
+@media (max-width:600px){
+  table.schedule-grid{ min-width:0; width:100%; table-layout:fixed; }
+  table.schedule-grid th, table.schedule-grid td{
+    padding:6px 2px; font-size:0.62rem; white-space:normal; word-break:break-word;
+  }
+  table.schedule-grid th.time{ width:44px; min-width:44px; padding-left:4px; font-size:0.6rem; }
+}
+
 /* お月謝 */
 table.fee-table{ width:100%; border-collapse:collapse; min-width:640px; }
 table.fee-table th, table.fee-table td{
@@ -286,8 +316,17 @@ table.fee-table thead th{
 table.fee-table th.fee-name{
   background:var(--white); white-space:nowrap; font-weight:500;
 }
+.mobile-break{ display:none; }
 table.fee-table td:empty::before{ content:"–"; color:var(--blush-deep); }
 table.fee-table tbody tr:last-child th, table.fee-table tbody tr:last-child td{ border-bottom:none; }
+
+@media (max-width:600px){
+  table.fee-table{ min-width:0; width:100%; table-layout:fixed; }
+  table.fee-table th, table.fee-table td{
+    padding:6px 3px; font-size:0.6rem; white-space:normal; word-break:break-word;
+  }
+  .mobile-break{ display:inline; }
+}
 
 /* 受賞実績 */
 .awards-list{ display:flex; flex-direction:column; }
