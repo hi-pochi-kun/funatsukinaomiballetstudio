@@ -340,6 +340,20 @@ table.fee-table tbody tr:last-child th, table.fee-table tbody tr:last-child td{ 
 .award-row .title + .title{ margin-top:10px; }
 .award-row .desc{ color:var(--ink-soft); font-size:0.9rem; }
 
+/* 卒業生の活躍 */
+.graduate-list{ display:flex; flex-direction:column; max-width:680px; }
+.graduate-item{
+  padding:22px 0;
+  border-bottom:2px dotted var(--rose);
+}
+.graduate-item:last-child{ border-bottom:none; }
+.graduate-name{
+  font-family:'Shippori Mincho', serif;
+  font-size:1.15rem; font-weight:600; color:var(--ink);
+  margin-bottom:8px;
+}
+.graduate-role{ color:var(--ink-soft); font-size:0.92rem; }
+
 /* 発表会写真 */
 .recital-year{ margin-bottom:56px; }
 .recital-year:last-child{ margin-bottom:0; }
