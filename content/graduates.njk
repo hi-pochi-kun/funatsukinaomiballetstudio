@@ -1,0 +1,24 @@
+---
+layout: base.njk
+title: 卒業生の活躍
+permalink: /graduates.html
+---
+<div class="page-header">
+  <span class="kicker">GRADUATION</span>
+  <h1>卒業生の活躍</h1>
+</div>
+<section>
+  <div class="section-inner">
+    <p style="color:var(--ink-soft); max-width:680px; margin:0 auto 44px; text-align:center;">
+      本教室から羽ばたいていった卒業生たちは、国内バレエ団や劇団四季、テーマパークダンサーなど、さまざまな場所、そしてさまざまな分野で活躍しています。
+    </p>
+    <div class="graduate-list">
+      {% for g in graduates %}
+      <div class="graduate-item">
+        <div class="graduate-name">{{ g.name }}</div>
+        <div class="graduate-role">{{ g.role }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
