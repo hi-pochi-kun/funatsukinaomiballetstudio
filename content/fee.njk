@@ -19,7 +19,7 @@ permalink: /fee.html
         <tbody>
           {% for row in fees.rows %}
           <tr>
-            <th class="fee-name">{{ row.name }}</th>
+            <th class="fee-name">{{ row.name | replace("クラス", '<br class="mobile-break">クラス') | safe }}</th>
             <td class="fee-target">{{ row.target }}</td>
             {% if row.flatFee %}
             <td colspan="3">{{ row.flatFee }}</td>
